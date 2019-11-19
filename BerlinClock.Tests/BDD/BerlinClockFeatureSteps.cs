@@ -1,14 +1,15 @@
 ﻿using System;
 using TechTalk.SpecFlow;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Linq;
+using BerlinClock.Converters;
+using BerlinClock.Core;
 
-namespace BerlinClock
+namespace BerlinClock.Tests.BDD
 {
     [Binding]
     public class TheBerlinClockSteps
     {
-        private ITimeConverter berlinClock = new TimeConverter();
+        private ITimeConverter berlinClock = new TimeToTextConverter();
         private String theTime;
 
         
@@ -21,8 +22,13 @@ namespace BerlinClock
         [Then(@"the clock should look like")]
         public void ThenTheClockShouldLookLike(string theExpectedBerlinClockOutput)
         {
-            Assert.AreEqual(berlinClock.convertTime(theTime), theExpectedBerlinClockOutput);
+            Assert.AreEqual(theExpectedBerlinClockOutput, berlinClock.ConvertTime(theTime));
         }
 
+        [Then(@"an exception should be thrown")]
+        [ExpectedException(typeof(ArgumentException))]
+        public void ThenAnExceptionShouldBethrown()
+        {
+        }
     }
 }

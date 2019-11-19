@@ -1,0 +1,5 @@
+/.vs/*
+/BerlinClock.Tests/bin/*
+/BerlinClock.Tests/obj/*
+/BerlinClock/obj/*
+/BerlinClock/bin/*

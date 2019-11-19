@@ -1,5 +1,4 @@
-﻿
-Feature: The Berlin Clock
+﻿Feature: The Berlin Clock
 	As a clock enthusiast
     I want to tell the time using the Berlin Clock
     So that I can increase the number of ways that I can read the time
@@ -49,3 +48,7 @@ RRRR
 OOOOOOOOOOO
 OOOO
 """
+
+Scenario: Invalid time string
+When the time is "24:12:00"
+Then an exception should be thrown
